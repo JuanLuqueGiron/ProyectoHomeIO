@@ -34,7 +34,7 @@ function Output(block)
   %In N Room
   %livingRoomLight = EngineIO.MemoryMap.Instance.GetFloat(146, EngineIO.MemoryType.Output);
   %in LivingRoom
-  Variable1 = EngineIO.MemoryMap.Instance.GetFloat(113, EngineIO.MemoryType.Output);
+  Variable1 = EngineIO.MemoryMap.Instance.GetFloat(124, EngineIO.MemoryType.Output);
   Variable1.Value = block.InputPort(1).Data;
   EngineIO.MemoryMap.Instance.Update();
 

@@ -1,10 +1,9 @@
 plot(out.Tgorro)
 hold
 grid 
-plot(out.Tambgorro,'r')
 
-length(out.Tambgorro)
 length(out.Tgorro)
+length(out.Ugorro)
 %% 
 
 out.Ugorro=out.Ugorro(1:2251)
