@@ -1,9 +1,10 @@
+plot(out.Tambgorro); hold on;
 plot(out.Tgorro)
 hold
 grid 
 
 length(out.Tgorro)
-length(out.Ugorro)
+length(out.Tambgorro)
 %% 
 
 out.Ugorro=out.Ugorro(1:2251)
