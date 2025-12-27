@@ -33,8 +33,8 @@ EngineIO.MemoryMap.Instance.Update();
 % In N Room
 %block.OutputPort(1).Data = double(EngineIO.MemoryMap.Instance.GetFloat(127, EngineIO.MemoryType.Input).Value);
 % In Living Room
-block.OutputPort(1).Data = double(EngineIO.MemoryMap.Instance.GetFloat(92, EngineIO.MemoryType.Input).Value); 
-block.OutputPort(2).Data = double(EngineIO.MemoryMap.Instance.GetFloat(93, EngineIO.MemoryType.Input).Value); 
+block.OutputPort(1).Data = double(EngineIO.MemoryMap.Instance.GetFloat(104, EngineIO.MemoryType.Input).Value); 
+block.OutputPort(2).Data = double(EngineIO.MemoryMap.Instance.GetFloat(105, EngineIO.MemoryType.Input).Value); 
 Instante=EngineIO.MemoryMap.Instance.GetDateTime(0, EngineIO.MemoryType.Input).Value;
 block.OutputPort(3).Data=double(Instante.Hour);
 
