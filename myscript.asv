@@ -17,22 +17,22 @@ systemIdentification
 
 %% 
 
-TIL = out.Tgorro;
-HIL = out.Ugorro;
-TambL = out.Tambgorro;
+TIl = out.TGorro;
+HI = out.UGorro;
+TambL = out.TambGorro;
 
 % Igualar longitudes al tamaño de HI
-TIL(size(TIL,1)+1:size(HIL,1)) = TIL(end);
-TambL(size(TambL,1)+1:size(HIL,1)) = TambL(end);
+TIg(size(TIg,1)+1:size(HI,1)) = TIg(end);
+TambG(size(TambG,1)+1:size(HI,1)) = TambG(end);
 
 % Datos de identificación (sin LumG)
-Datos = iddata(TIL, [HIL, TambL], 600);
+Datos = iddata(TIg, [HI, TambG], 600);
 
 % Estimación del sistema en espacio de estados (orden 1)
-Sistema = ssest(Datos, 2);
+Sistema = ssest(Datos, 1);
 
 % Matrices del modelo
-Ass1 = Sistema.A
-Bss1 = Sistema.B
-Css1 = Sistema.C
-Dss1 = Sistema.D
+Ass1 = Sistema.A;
+Bss1 = Sistema.B;
+Css1 = Sistema.C;
+Dss1 = Sistema.D;
