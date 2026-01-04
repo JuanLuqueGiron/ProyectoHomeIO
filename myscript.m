@@ -26,10 +26,10 @@ TIL(size(TIL,1)+1:size(HIL,1)) = TIL(end);
 TambL(size(TambL,1)+1:size(HIL,1)) = TambL(end);
 
 % Datos de identificación (sin LumG)
-Datos = iddata(TIL, [HIL, TambL], 600);
+Datos = iddata(TIL, [HIL, TambL], 200);
 
 % Estimación del sistema en espacio de estados (orden 1)
-Sistema = ssest(Datos, 2);
+Sistema = ssest(Datos, 1);
 
 % Matrices del modelo
 Ass1 = Sistema.A
