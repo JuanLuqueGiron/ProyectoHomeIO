@@ -9,7 +9,7 @@ function analog_read(block)
 function setup(block)
   %% Register number of input and output ports
   block.NumInputPorts  = 0;
-  block.NumOutputPorts = 4;
+  block.NumOutputPorts = 6;
 
   %% Setup functional port properties to dynamically
   block.SetPreCompPortInfoToDefaults;
@@ -39,6 +39,9 @@ Instante=EngineIO.MemoryMap.Instance.GetDateTime(0, EngineIO.MemoryType.Input).V
 block.OutputPort(3).Data=double(Instante.Hour);
 
 block.OutputPort(4).Data = double(EngineIO.MemoryMap.Instance.GetFloat(132, EngineIO.MemoryType.Memory).Value)-273.15; %%TAMB EN K
+block.OutputPort(5).Data = double(EngineIO.MemoryMap.Instance.GetBit(274, EngineIO.MemoryType.Input).Value);
+block.OutputPort(6).Data = double(EngineIO.MemoryMap.Instance.GetFloat(103, EngineIO.MemoryType.Input).Value); %Brightness sensor
+
 %block.OutputPort(5).Data = double(EngineIO.MemoryMap.Instance.GetFloat(139, EngineIO.MemoryType.Input).Value); 
 % block.OutputPort(6).Data=double(Instante.Hour);
 % block.OutputPort(7).Data=double(Instante.Day);

@@ -76,17 +76,16 @@ out.Ugorro=out.Ugorro(1:2251)
 out.Tmodelo=out.Tmodelo(1:2251)
 % 2. Creamos la figura
 figure('Name', 'Ejemplo de Subplot Asimétrico', 'Color', 'w');
-sgtitle('Modelo de Tensión-Temperatura vs Sistema Real (Tamb = [16,17])', 'FontSize', 20, 'FontWeight', 'bold');
+sgtitle('Datos para la identificación del modelo con Punto de operación en 0V, 16.5 ºC (Tamb = [16,17])', 'FontSize', 20, 'FontWeight', 'bold');
 
 % --- GRÁFICA 1 (Ocupa 2/3 del espacio) ---
 % Usamos una rejilla de 3 filas, y unimos las posiciones [1 y 2]
 subplot(3, 1, [1, 2]); 
-plot(out.tout,out.T, 'r', 'LineWidth', 2); hold on;% 'r' = rojo 
-plot(out.tout,out.Tmodelo, 'Color','#00CC66', 'LineWidth', 2); hold on;% 'r' = rojo 
+plot(out.tout,out.Tgorro, 'r', 'LineWidth', 2); hold on;% 'r' = rojo 
+plot(out.tout,out.Tmodelo, 'r', 'LineWidth', 2); hold on;% 'r' = rojo 
 grid on;
 title('Temperatura en la habitación L');
 ylabel('T [ºC]');
-legend('Sistema Real', 'Modelo Tensión-Temperatura');
 % Opcional: quitamos las etiquetas X de la gráfica de arriba para limpiar
 set(gca, 'XTickLabel', []); 
 
