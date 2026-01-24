@@ -98,4 +98,74 @@ grid on;
 title('Tensión aplicada al calefactor');
 xlabel('Tiempo [s]');
 ylabel('Tensión [V]');
+%% Temperatura frente a tensión con Tamb=[15,16]
+length(out.tout)
+%length(out.T)
+length(out.Tambgorro)
+length(out.Tgorro)
+out.tout=out.tout(1:2251)
+out.Tmodelo=out.Tmodelo(1:2251)
+out.Tamb=out.Tamb(1:2251)
+out.T=out.T(1:2251)
+% 2. Creamos la figura
+figure('Name', 'Ejemplo de Subplot Asimétrico', 'Color', 'w');
+sgtitle('Modelo de Tamb-T frente al sistema real (Tamb = [0,30])', 'FontSize', 20, 'FontWeight', 'bold');
 
+% --- GRÁFICA 1 (Ocupa 2/3 del espacio) ---
+% Usamos una rejilla de 3 filas, y unimos las posiciones [1 y 2]
+subplot(4, 1, [1, 2, 3, 4]); 
+plot(out.tout,out.T, 'r', 'LineWidth', 2); hold on;% 'r' = rojo 
+plot(out.tout,out.Tmodelo, 'Color','#00CC66', 'LineWidth', 2); hold on;% 'r' = rojo 
+plot(out.tout, out.Tamb, 'b', 'LineWidth', 2); % 'b' = azul
+grid on;
+title('Temperatura');
+ylabel('T [ºC]');
+xlabel('Tiempo [s]');
+legend('Temp Habitación', 'Temp Modelo','Temp Ambiente');
+% Opcional: quitamos las etiquetas X de la gráfica de arriba para limpiar
+set(gca, 'XTickLabel', []); 
+
+% % --- GRÁFICA 2 (Ocupa 1/3 del espacio) ---
+% % Ocupa la posición 3 de la rejilla
+% subplot(4, 1, [3, 4]); 
+% plot(out.tout, out.Tambgorro, 'b', 'LineWidth', 2); % 'b' = azul
+% grid on;
+% title('Tensión aplicada al calefactor');
+% xlabel('Tiempo [s]');
+% ylabel('Tensión [V]');
+
+%% Luinosidad
+length(out.tout)
+%length(out.T)
+length(out.Tambgorro)
+length(out.Tgorro)
+out.tout=out.tout(1:2251)
+out.Tmodelo=out.Tmodelo(1:2251)
+out.T=out.T(1:2251)
+out.Lum=out.Lum(1:2251)
+% 2. Creamos la figura
+figure('Name', 'Ejemplo de Subplot Asimétrico', 'Color', 'w');
+sgtitle('Modelo de Lum-T frente al sistema real (Tamb = [16,17])', 'FontSize', 20, 'FontWeight', 'bold');
+
+% --- GRÁFICA 1 (Ocupa 2/3 del espacio) ---
+% Usamos una rejilla de 3 filas, y unimos las posiciones [1 y 2]
+subplot(3, 1, [1, 2]); 
+plot(out.tout,out.T, 'r', 'LineWidth', 2); hold on;% 'r' = rojo 
+plot(out.tout,out.Tmodelo, 'Color','#00CC66', 'LineWidth', 2); hold on;% 'r' = rojo 
+% plot(out.tout, out.Tamb, 'b', 'LineWidth', 2); % 'b' = azul
+grid on;
+title('Temperatura');
+ylabel('T [ºC]');
+xlabel('Tiempo [s]');
+legend('Temp Habitación', 'Temp Modelo'); %, 'Temp Modelo','Temp Ambiente');
+% Opcional: quitamos las etiquetas X de la gráfica de arriba para limpiar
+set(gca, 'XTickLabel', []); 
+
+% --- GRÁFICA 2 (Ocupa 1/3 del espacio) ---
+% Ocupa la posición 3 de la rejilla
+subplot(3, 1, 3); 
+plot(out.tout, out.Lumgorro, 'b', 'LineWidth', 2); % 'b' = azul
+grid on;
+title('Luminosidad detectada por el sensor');
+xlabel('Tiempo [s]');
+ylabel('Luminosidad [V]');
