@@ -6,14 +6,14 @@ A= [-3.8669886e-5];
 B=[-1.450262318829149e-06,-6.531519388547637e-07];
 C=-71.051001498443750;
 D=[0,0];
-sys=ss(A,B,C,D);
+sys=ss(Ass1,Bss1,Css1,Dss1);
 %%Discretizamos el sistema:
 Ts=200; %%TIEMPO DE MUESTREO: ELEGIR UNO ADECUADO. EL QUE ESTÁ NO ES ADECUADO
 sysd=c2d(sys,Ts);
 Ad=sysd.A;Bd=sysd.B;Cd=sysd.C;
 
  PLANTA=sysd;
- PLANTA = setmpcsignals(PLANTA,'MV',1,'MD',2); %%CONFIGURAR VARIABLES MANIPULABLES Y MANIPULADAS: manipulables: el radiador: manipuladas: Tamb y Lum
+ PLANTA = setmpcsignals(PLANTA,'MV',1,'MD',[2 3]); %%CONFIGURAR VARIABLES MANIPULABLES Y MANIPULADAS: manipulables: el radiador: manipuladas: Tamb y Lum
 %%HORIZONTES DE CONTROL Y PREDICCIÃ“N: PARÁMETROS DE SELECCIÓN. PROBAR
  hpred=10;hcont=8;
  Weights=struct('ManipulatedVariables',[0],'ManipulatedVariablesRate',[2],'OutputVariables',1); %%PESOS, MANIPULATED VARIABLES=0, OUTPUT VARIABLES=1
@@ -43,10 +43,10 @@ xc=mpcstate(MPCOBJ);
    end
    %MPCMOVE: proyecta el mpc para resolver el problema de optimización y
    %devuelve la variable de control a aplicar en el momento actual
-   uk=mpcmove(MPCOBJ,xc,yk,referencia,Tamb);
+   uk=mpcmove(MPCOBJ,xc,yk,referencia,[Tamb Lum]);
 
 
-   x=Ad*xk1+Bd*[uk;Tamb];
+   x=Ad*xk1+Bd*[uk;Tamb;Lum];
    yk=Cd*x;
 
    ref(i)=referencia;
