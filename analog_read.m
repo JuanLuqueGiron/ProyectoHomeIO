@@ -39,7 +39,7 @@ Instante=EngineIO.MemoryMap.Instance.GetDateTime(0, EngineIO.MemoryType.Input).V
 block.OutputPort(3).Data=double(Instante.Hour);
 
 block.OutputPort(4).Data = double(EngineIO.MemoryMap.Instance.GetFloat(132, EngineIO.MemoryType.Memory).Value)-273.15; %%TAMB EN K
-block.OutputPort(5).Data = double(EngineIO.MemoryMap.Instance.GetBit(274, EngineIO.MemoryType.Input).Value);
+block.OutputPort(5).Data = double(EngineIO.MemoryMap.Instance.GetFloat(141, EngineIO.MemoryType.Memory).Value); % Potencia en W
 block.OutputPort(6).Data = double(EngineIO.MemoryMap.Instance.GetFloat(103, EngineIO.MemoryType.Input).Value); %Brightness sensor
 
 %block.OutputPort(5).Data = double(EngineIO.MemoryMap.Instance.GetFloat(139, EngineIO.MemoryType.Input).Value); 
