@@ -1,25 +1,9 @@
 %% Cálculo de Métricas de Rendimiento (Original de guardadovariables.m)
 % Este script calcula errores medios, potencias y métricas IAE/ITAE/ITSE.
 
-start_idx = min(length(out.tout), floor(58000/200));
+start_idx =  floor(58000/200);
 
 %% --- CÁLCULO DE ERRORES MEDIOS Y POTENCIAS ---
-
-%% Error PID sin FF
-ErrorpidNoFF = out.Error(58000/200:end);
-PotErrorTotalpidNoFF = ErrorpidNoFF.^2;
-PotTotalpidNoFF = out.Potencia(58000/200:end);
-ErrorAcumulado=0; PotErrorAcumulada=0; PotAcumulada = 0;
-aux=1;
-for i=1:size(ErrorpidNoFF)
-    ErrorAcumulado=ErrorAcumulado+abs(ErrorpidNoFF(i));
-    PotErrorAcumulada=PotErrorAcumulada+PotErrorTotalpidNoFF(i);
-    PotAcumulada = PotAcumulada + PotTotalpidNoFF(i);
-    aux=aux+1;
-end
-ErrorMedioPIDNoFF=ErrorAcumulado/(aux-1);
-PotPIDNoFF=PotErrorAcumulada/(aux-1);
-PotenciaMediaAcumulada=PotAcumulada/(aux-1);
 
 %% Error PID con WU (Antiwindup)
 Errorwum = Errorwu(58000/200:end);
